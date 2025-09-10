@@ -4,7 +4,6 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>FYNX Pro – Privacy Policy</title>
-  <meta name="description" content="Privacy Policy for the FYNX Pro iOS app." />
   <style>
     :root { --bg:#0b0c10; --card:#121318; --text:#e8e8ea; --muted:#a5a7af; }
     body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif}
@@ -12,61 +11,104 @@
     .card{background:var(--card);border:1px solid #1c1e25;border-radius:16px;padding:28px}
     h1{margin:0 0 8px} h2{margin:24px 0 8px} p,li{color:var(--muted)}
     a{color:#6aa4ff}
+
+    /* Glitch intro */
+    #intro{
+      position:fixed;top:0;left:0;right:0;bottom:0;
+      display:flex;align-items:center;justify-content:center;
+      background:black;color:#0f0;font-size:2rem;font-weight:700;
+      z-index:9999;
+      animation: fadeOut 2.8s ease forwards;
+      animation-delay: 2.2s;
+    }
+    .glitch{
+      position:relative;
+      color:#0f0;
+      font-size:2.5rem;
+      text-transform:uppercase;
+      animation: glitch 1s infinite;
+    }
+    .glitch::before,
+    .glitch::after{
+      content:attr(data-text);
+      position:absolute;left:0;
+      background:black;
+      overflow:hidden;
+      clip:rect(0,900px,0,0);
+    }
+    .glitch::before{
+      left:2px;text-shadow:-2px 0 red;
+      animation: glitchTop 1s infinite linear alternate-reverse;
+    }
+    .glitch::after{
+      left:-2px;text-shadow:-2px 0 blue;
+      animation: glitchBottom 1s infinite linear alternate-reverse;
+    }
+    @keyframes glitch {
+      0% { transform: skew(0deg); }
+      20% { transform: skew(5deg); }
+      40% { transform: skew(-5deg); }
+      60% { transform: skew(3deg); }
+      80% { transform: skew(-3deg); }
+      100% { transform: skew(0deg); }
+    }
+    @keyframes glitchTop {
+      0% { clip:rect(0,900px,0,0); }
+      20% { clip:rect(0,900px,50px,0); }
+      40% { clip:rect(0,900px,20px,0); }
+      60% { clip:rect(0,900px,80px,0); }
+      80% { clip:rect(0,900px,40px,0); }
+      100% { clip:rect(0,900px,0,0); }
+    }
+    @keyframes glitchBottom {
+      0% { clip:rect(0,900px,0,0); }
+      20% { clip:rect(60px,900px,100px,0); }
+      40% { clip:rect(20px,900px,70px,0); }
+      60% { clip:rect(80px,900px,120px,0); }
+      80% { clip:rect(40px,900px,90px,0); }
+      100% { clip:rect(0,900px,0,0); }
+    }
+    @keyframes fadeOut {
+      to { opacity:0; visibility:hidden; }
+    }
   </style>
 </head>
 <body>
-<div class="wrap">
-  <div class="card">
-    <h1>Privacy Policy</h1>
-    <p><strong>Effective date:</strong> <span id="d"></span></p>
-    <p>FYNX Pro (“we”, “our”, “us”) provides trading tools and utilities. This policy explains what we collect, how we use it, and your choices.</p>
-
-    <h2>What we collect</h2>
-    <ul>
-      <li><strong>Contact information:</strong> email address you provide for support or account-related communication.</li>
-      <li><strong>Purchase history:</strong> subscription status, product identifiers, and receipts handled by Apple to enable and validate your FYNX Pro subscription.</li>
-      <li><strong>Diagnostics (optional):</strong> basic crash and performance data to improve stability. No advertising identifiers are used.</li>
-    </ul>
-
-    <h2>How we use data</h2>
-    <ul>
-      <li>Provide, verify, and manage your FYNX Pro subscription.</li>
-      <li>Respond to support requests and communicate important service updates.</li>
-      <li>Maintain app reliability and prevent fraud.</li>
-    </ul>
-
-    <h2>What we <em>don’t</em> do</h2>
-    <ul>
-      <li>We do not sell your personal data.</li>
-      <li>We do not use third-party advertising SDKs.</li>
-      <li>We do not track you across other companies’ apps and websites.</li>
-    </ul>
-
-    <h2>Payments</h2>
-    <p>All purchases are processed by Apple. We do not receive your full payment card details. For details on Apple’s handling of payment information, see <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple’s Privacy Policy</a>.</p>
-
-    <h2>Data retention</h2>
-    <p>We retain only the minimum data necessary for the purposes described above and delete or anonymize data when it is no longer required.</p>
-
-    <h2>Your choices</h2>
-    <ul>
-      <li>You can cancel your subscription at any time in App Store settings.</li>
-      <li>You can request deletion of support correspondence by contacting us.</li>
-    </ul>
-
-    <h2>Children</h2>
-    <p>FYNX Pro is intended for users aged 13+ and is not directed to children.</p>
-
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:support@yourdomain.com">support@yourdomain.com</a></p>
-
-    <h2>Changes</h2>
-    <p>We may update this policy as our app evolves. Material changes will be posted on this page.</p>
+  <!-- Intro screen -->
+  <div id="intro">
+    <div class="glitch" data-text="Welcome FYNX Policy">Welcome FYNX Policy</div>
   </div>
-</div>
-<script>
-  const d = new Date();
-  document.getElementById('d').textContent = d.toLocaleDateString(undefined, {year:'numeric', month:'long', day:'numeric'});
-</script>
-</body>
-</html>
+
+  <!-- Main Privacy Policy -->
+  <div class="wrap">
+    <div class="card">
+      <h1>Privacy Policy</h1>
+      <p><strong>Effective date:</strong> <span id="d"></span></p>
+      <p>FYNX Pro (“we”, “our”, “us”) provides trading tools and utilities. This policy explains what we collect, how we use it, and your choices.</p>
+
+      <h2>What we collect</h2>
+      <ul>
+        <li><strong>Contact information:</strong> email address you provide for support or account-related communication.</li>
+        <li><strong>Purchase history:</strong> subscription status, product identifiers, and receipts handled by Apple to enable and validate your FYNX Pro subscription.</li>
+        <li><strong>Diagnostics (optional):</strong> basic crash and performance data to improve stability. No advertising identifiers are used.</li>
+      </ul>
+
+      <h2>How we use data</h2>
+      <ul>
+        <li>Provide, verify, and manage your FYNX Pro subscription.</li>
+        <li>Respond to support requests and communicate important service updates.</li>
+        <li>Maintain app reliability and prevent fraud.</li>
+      </ul>
+
+      <h2>What we <em>don’t</em> do</h2>
+      <ul>
+        <li>We do not sell your personal data.</li>
+        <li>We do not use third-party advertising SDKs.</li>
+        <li>We do not track you across other companies’ apps and websites.</li>
+      </ul>
+
+      <h2>Payments</h2>
+      <p>All purchases are processed by Apple.
+
+Apple Legal (https://www.apple.com/legal/privacy/)
+Apple Legal - Legal - Privacy Policy - Apple
