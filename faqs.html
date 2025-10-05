@@ -3,59 +3,70 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>FAQs • FYNX</title>
+  <title>FYNX — FAQs</title>
+  <meta name="description" content="Frequently asked questions about FYNX Pro"/>
   <link rel="stylesheet" href="assets/styles.css"/>
-  <meta name="description" content="Frequently Asked Questions for FYNX."/>
   <style>
-    details{background:var(--card); border:1px solid var(--border); border-radius:14px; padding:14px 16px; margin:10px 0}
-    summary{cursor:pointer; font-weight:600}
-    details[open]{box-shadow:var(--shadow)}
+    .doc a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+    .doc a:hover { opacity: .8; }
+    .badge { display:inline-block; font-size:.8rem; padding:.35rem .6rem; border:1px solid #444; border-radius:999px; }
+    ul { line-height:1.6; }
   </style>
 </head>
 <body>
-<header class="header"><div class="container nav">
-  <a class="brand" href="index.html"><span class="dot"></span><span>FYNX</span></a>
-</div></header>
+  <!-- Header -->
+  <header class="header">
+    <div class="container nav">
+      <a class="brand" href="index.html"><span class="dot"></span><span>FYNX</span></a>
+      <nav class="navlinks">
+        <a href="index.html#features">Features</a>
+        <a href="index.html#getting-started">Get Started</a>
+        <a href="index.html#screens">Screens</a>
+      </nav>
+    </div>
+  </header>
 
-<main class="legal-wrap">
-  <article class="legal-card" style="background:none; border:none; box-shadow:none; padding:0">
-    <h1>Frequently Asked Questions</h1>
+  <main>
+    <section class="section">
+      <div class="container doc" style="max-width:820px">
+        <h1>Frequently Asked Questions</h1>
+        <p class="badge">Updated: January 2025</p>
 
-    <details>
-      <summary>Is FYNX financial advice?</summary>
-      <p>No. It’s educational tooling. Trading involves risk.</p>
-    </details>
+        <h2>1. What is FYNX Pro?</h2>
+        <p>FYNX Pro is an advanced iOS application that provides precision trading utilities, live data, and risk-management tools for traders. It’s designed to help you trade smarter, faster, and more efficiently on your iPhone.</p>
 
-    <details>
-      <summary>How do I start?</summary>
-      <p>Install from the App Store → open Settings in the app → set risk %, account size, and create two presets.</p>
-    </details>
+        <h2>2. Do I need a subscription?</h2>
+        <p>The base version of FYNX Pro is free to download. However, premium tools and analytics are available through a monthly subscription, handled securely via Apple’s in-app purchase system.</p>
 
-    <details>
-      <summary>Why can’t I see subscription features?</summary>
-      <p>Confirm the correct Apple ID and tap “Restore Purchases” in the app. If issues continue, contact <a href="mailto:support@elhamamini.cc">support@elhamamini.cc</a>.</p>
-    </details>
+        <h2>3. How do I cancel or manage my subscription?</h2>
+        <p>All payments and cancellations are managed through your Apple ID settings. Open your iPhone’s <strong>Settings › Apple ID › Subscriptions</strong> to view or cancel your plan at any time.</p>
 
-    <details>
-      <summary>Does the app track me?</summary>
-      <p>No advertising tracking. Optional diagnostics help improve stability. See the <a href="privacy.html">Privacy Policy</a>.</p>
-    </details>
+        <h2>4. Does FYNX store my personal data?</h2>
+        <p>We only store what’s necessary to deliver a smooth experience — never your trading data or personal financial information. For details, see our <a href="privacy.html">Privacy Policy</a>.</p>
 
-    <details>
-      <summary>How do I report a bug or request a feature?</summary>
-      <p>Email <a href="mailto:support@elhamamini.cc">support@elhamamini.cc</a> with screenshots and steps.</p>
-    </details>
-  </article>
-</main>
+        <h2>5. I found a bug or feature issue. How can I report it?</h2>
+        <p>We constantly improve FYNX Pro based on user feedback. If you encounter a problem, visit our <a href="support.html">Support page</a> to submit a detailed report.</p>
 
-<footer class="footer"><div class="container links">
-  <a href="privacy.html">Privacy Policy</a>
-  <a href="terms.html">Terms of Use</a>
-  <a href="faqs.html">FAQs</a>
-  <a href="support.html">Support</a>
-  <a href="https://elhamamini.cc" target="_blank" rel="noopener">Developer Website</a>
-</div></footer>
+        <h2>6. Can I access my account on multiple devices?</h2>
+        <p>Yes, if you’re using iCloud sync or restoring from a previous device, your FYNX Pro preferences will transfer automatically.</p>
+
+        <h2>7. How do I get in touch with the FYNX team?</h2>
+        <p>For assistance or business inquiries, please visit our <a href="support.html">Support page</a>. We typically respond within 24–48 hours.</p>
+
+        <h2>8. Is FYNX financial advice?</h2>
+        <p>No. FYNX Pro is an analytical tool built for traders. It provides data, not recommendations. You are responsible for your own trading and investment decisions.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Use</a>
+      <a href="faqs.html">FAQs</a>
+      <a href="support.html">Support</a>
+      <a href="https://elhamamini.cc" target="_blank" rel="noopener">Developer Website</a>
+    </div>
+  </footer>
 </body>
 </html>
-
-
