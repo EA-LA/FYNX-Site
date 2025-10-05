@@ -1,114 +1,61 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>FYNX Pro – Privacy Policy</title>
-  <style>
-    :root { --bg:#0b0c10; --card:#121318; --text:#e8e8ea; --muted:#a5a7af; }
-    body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif}
-    .wrap{max-width:900px;margin:0 auto;padding:48px 20px}
-    .card{background:var(--card);border:1px solid #1c1e25;border-radius:16px;padding:28px}
-    h1{margin:0 0 8px} h2{margin:24px 0 8px} p,li{color:var(--muted)}
-    a{color:#6aa4ff}
-
-    /* Glitch intro */
-    #intro{
-      position:fixed;top:0;left:0;right:0;bottom:0;
-      display:flex;align-items:center;justify-content:center;
-      background:black;color:#0f0;font-size:2rem;font-weight:700;
-      z-index:9999;
-      animation: fadeOut 2.8s ease forwards;
-      animation-delay: 2.2s;
-    }
-    .glitch{
-      position:relative;
-      color:#0f0;
-      font-size:2.5rem;
-      text-transform:uppercase;
-      animation: glitch 1s infinite;
-    }
-    .glitch::before,
-    .glitch::after{
-      content:attr(data-text);
-      position:absolute;left:0;
-      background:black;
-      overflow:hidden;
-      clip:rect(0,900px,0,0);
-    }
-    .glitch::before{
-      left:2px;text-shadow:-2px 0 red;
-      animation: glitchTop 1s infinite linear alternate-reverse;
-    }
-    .glitch::after{
-      left:-2px;text-shadow:-2px 0 blue;
-      animation: glitchBottom 1s infinite linear alternate-reverse;
-    }
-    @keyframes glitch {
-      0% { transform: skew(0deg); }
-      20% { transform: skew(5deg); }
-      40% { transform: skew(-5deg); }
-      60% { transform: skew(3deg); }
-      80% { transform: skew(-3deg); }
-      100% { transform: skew(0deg); }
-    }
-    @keyframes glitchTop {
-      0% { clip:rect(0,900px,0,0); }
-      20% { clip:rect(0,900px,50px,0); }
-      40% { clip:rect(0,900px,20px,0); }
-      60% { clip:rect(0,900px,80px,0); }
-      80% { clip:rect(0,900px,40px,0); }
-      100% { clip:rect(0,900px,0,0); }
-    }
-    @keyframes glitchBottom {
-      0% { clip:rect(0,900px,0,0); }
-      20% { clip:rect(60px,900px,100px,0); }
-      40% { clip:rect(20px,900px,70px,0); }
-      60% { clip:rect(80px,900px,120px,0); }
-      80% { clip:rect(40px,900px,90px,0); }
-      100% { clip:rect(0,900px,0,0); }
-    }
-    @keyframes fadeOut {
-      to { opacity:0; visibility:hidden; }
-    }
-  </style>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Privacy Policy • FYNX Pro</title>
+  <link rel="stylesheet" href="assets/styles.css"/>
+  <meta name="description" content="Privacy Policy for FYNX Pro."/>
 </head>
 <body>
-  <!-- Intro screen -->
-  <div id="intro">
-    <div class="glitch" data-text="Welcome FYNX Policy">Welcome FYNX Policy</div>
-  </div>
+  <header class="header"><div class="container nav">
+    <a class="brand" href="/"><span class="dot"></span><span>FYNX Pro</span></a>
+    <div class="navlinks"><a href="index.html#features">Features</a></div>
+  </div></header>
 
-  <!-- Main Privacy Policy -->
-  <div class="wrap">
-    <div class="card">
+  <main class="legal-wrap">
+    <article class="legal-card">
       <h1>Privacy Policy</h1>
-      <p><strong>Effective date:</strong> <span id="d"></span></p>
-      <p>FYNX Pro (“we”, “our”, “us”) provides trading tools and utilities. This policy explains what we collect, how we use it, and your choices.</p>
+      <div class="meta">Effective date: <span id="pp-date">January 1, 2025</span></div>
+
+      <p>FYNX Pro (“we”, “our”, “us”) provides trading tools and utilities. This page explains what we collect, how we use it, and your choices.</p>
 
       <h2>What we collect</h2>
       <ul>
-        <li><strong>Contact information:</strong> email address you provide for support or account-related communication.</li>
-        <li><strong>Purchase history:</strong> subscription status, product identifiers, and receipts handled by Apple to enable and validate your FYNX Pro subscription.</li>
-        <li><strong>Diagnostics (optional):</strong> basic crash and performance data to improve stability. No advertising identifiers are used.</li>
+        <li><strong>Contact info</strong> (optional): email you provide for support.</li>
+        <li><strong>Purchase validation</strong>: subscription status and receipts handled by Apple to enable your Pro features.</li>
+        <li><strong>Diagnostics (optional)</strong>: basic crash/performance data to improve stability. No advertising identifiers.</li>
       </ul>
 
       <h2>How we use data</h2>
       <ul>
-        <li>Provide, verify, and manage your FYNX Pro subscription.</li>
-        <li>Respond to support requests and communicate important service updates.</li>
-        <li>Maintain app reliability and prevent fraud.</li>
+        <li>Provide and maintain app functionality.</li>
+        <li>Validate purchases and manage access to Pro features.</li>
+        <li>Improve stability and fix bugs.</li>
       </ul>
 
-      <h2>What we <em>don’t</em> do</h2>
+      <h2>Processing & storage</h2>
+      <p>Most data remains on your device. Limited purchase/diagnostics data is processed by Apple and service providers we use to operate the app.</p>
+
+      <h2>Your choices</h2>
       <ul>
-        <li>We do not sell your personal data.</li>
-        <li>We do not use third-party advertising SDKs.</li>
-        <li>We do not track you across other companies’ apps and websites.</li>
+        <li>Disable diagnostics in iOS Settings if you prefer.</li>
+        <li>You can request deletion of support emails you’ve sent us at <a href="mailto:support@elhamamini.cc">support@elhamamini.cc</a>.</li>
       </ul>
 
-      <h2>Payments</h2>
-      <p>All purchases are processed by Apple.
+      <h2>Children</h2>
+      <p>FYNX Pro is not directed to children under 13. If you believe a child provided us information, contact us to remove it.</p>
 
-Apple Legal (https://www.apple.com/legal/privacy/)
-Apple Legal - Legal - Privacy Policy - Apple
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:support@elhamamini.cc">support@elhamamini.cc</a></p>
+
+      <hr>
+      <p class="meta">We may update this policy as the app evolves. We will revise the “Effective date” above when changes are made.</p>
+    </article>
+  </main>
+
+  <footer class="footer"><div class="container links">
+    <a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a><a href="faqs.html">FAQs</a><a href="support.html">Support</a>
+  </div></footer>
+</body>
+</html>
