@@ -13,7 +13,7 @@
 </head>
 <body>
 <header class="header"><div class="container nav">
-  <a class="brand" href="/"><span class="dot"></span><span>FYNX</span></a>
+  <a class="brand" href="index.html"><span class="dot"></span><span>FYNX</span></a>
 </div></header>
 
 <main class="legal-wrap">
@@ -25,11 +25,15 @@
       <a class="btn" href="mailto:support@elhamamini.cc">Open Mail</a>
     </div>
 
-    <!-- Formspree form (replace YOUR_FORMSPREE_ID and remove 'disabled' block below when ready) -->
-    <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+    <!-- Formspree connected -->
+    <form action="https://formspree.io/f/mwprqlwd" method="POST">
+      <input type="hidden" name="_subject" value="FYNX Support"/>
+      <input type="text" name="_gotcha" style="display:none"> <!-- honeypot -->
+
       <label>Name<br><input class="field" name="name" required></label><br><br>
       <label>Email<br><input class="field" type="email" name="email" required></label><br><br>
       <label>Message<br><textarea class="field" name="message" rows="6" required></textarea></label><br><br>
+
       <button class="btn" type="submit">Send Message</button>
     </form>
 
