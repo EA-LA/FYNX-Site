@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>FYNX — Android coming soon</title>
+  <meta name="description" content="FYNX for Android is coming soon."/>
+  <!-- You can remove this <style> if you prefer to move it into assets/styles.css -->
+  <style>
+    :root { color-scheme: dark; }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, -apple-system, "SF Pro", system-ui, -system-ui;
+      background: #0b0b0b;
+      color: #eaeaea;
+      min-height: 100dvh;
+      display: grid;
+      place-items: center;
+      padding: 16px;
+    }
+
+    #app {
+      width: min(780px, 96vw);
+    }
+
+    .card {
+      background: #151515;
+      border-radius: 18px;
+      padding: 22px 20px;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.55);
+      border: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .title-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 26px;
+      letter-spacing: 0.03em;
+      margin: 0;
+    }
+
+    .subtitle {
+      margin: 6px 0 18px;
+      color: #b1b1b1;
+      font-size: 14px;
+      max-width: 32rem;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .pill {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #1e1e1e;
+      border: 1px solid rgba(255,255,255,0.06);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: #bfbfbf;
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 14px;
+      border: 1px solid rgba(255,255,255,0.12);
+      text-decoration: none;
+      cursor: pointer;
+      transition: background .18s ease, border-color .18s ease, transform .12s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: #f5f5f5;
+      color: #050505;
+    }
+
+    .btn-primary:hover {
+      background: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: #eaeaea;
+    }
+
+    .btn-ghost:hover {
+      background: #202020;
+    }
+
+    .list {
+      margin: 0;
+      padding-left: 20px;
+      font-size: 14px;
+      color: #b8b8b8;
+    }
+
+    .list li + li {
+      margin-top: 6px;
+    }
+
+    .footer-note {
+      margin-top: 18px;
+      font-size: 12px;
+      color: #7a7a7a;
+    }
+
+    .badge {
+      font-size: 11px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(94,234,212,0.35);
+      color: #a5fff3;
+      background: radial-gradient(circle at top left, #19b3a0 0, transparent 55%),
+                  #101010;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      body {
+        background:
+          radial-gradient(circle at top left, #1f2933 0, transparent 55%),
+          radial-gradient(circle at bottom right, #020617 0, transparent 55%),
+          #020617;
+      }
+      .card {
+        position: relative;
+        overflow: hidden;
+      }
+      .card::before {
+        content: "";
+        position: absolute;
+        inset: -40%;
+        background:
+          radial-gradient(circle at 0% 0%, rgba(94,234,212,0.06) 0, transparent 55%),
+          radial-gradient(circle at 100% 100%, rgba(129,140,248,0.06) 0, transparent 55%);
+        mix-blend-mode: screen;
+        animation: drift 22s linear infinite alternate;
+        pointer-events: none;
+      }
+      @keyframes drift {
+        0%   { transform: translate3d(0,0,0); }
+        100% { transform: translate3d(-12%, 8%, 0); }
+      }
+    }
+  </style>
+</head>
+<body>
+  <main id="app">
+    <section class="card">
+      <div class="title-row">
+        <h1>FYNX for Android is coming soon</h1>
+        <span class="badge">Android • 2025</span>
+      </div>
+      <p class="subtitle">
+        We&rsquo;re building a high-performance version of FYNX for Android with the same
+        Grok-style UI, risk tools, and calculators you use on iOS.
+      </p>
+
+      <div class="pill-row">
+        <span class="pill">Multi-asset calculators</span>
+        <span class="pill">Guardian risk engine</span>
+        <span class="pill">Trading Journal 2.0</span>
+      </div>
+
+      <div class="btn-row">
+        <!-- change the mail if you want another waitlist address -->
+        <a class="btn btn-primary"
+           href="mailto:ha6876122@gmail.com?subject=FYNX%20Android%20waitlist&body=Add%20me%20to%20the%20Android%20beta%20waitlist.">
+          Join Android waitlist
+        </a>
+        <a class="btn btn-ghost" href="index.html">
+          Back to FYNX for iOS
+        </a>
+      </div>
+
+      <ul class="list">
+        <li>All core calculators and Guardian will ship first.</li>
+        <li>Journal, streaks, and Alpha Rooms will follow in later updates.</li>
+        <li>Waitlist users get early beta access and feature votes.</li>
+      </ul>
+
+      <p class="footer-note">
+        No release date yet &mdash; we&rsquo;ll email the waitlist and post on social
+        as soon as we&rsquo;re ready.
+      </p>
+    </section>
+  </main>
+</body>
+</html>
