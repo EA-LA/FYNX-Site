@@ -83,6 +83,13 @@
       box-shadow: 0 0 16px rgba(40,240,200,0.9);
     }
 
+    /* ADDED: logo image styling (minimal, only for the new img) */
+    .brand .brand-logo {
+      height: 20px;
+      width: auto;
+      display: block;
+    }
+
     .navlinks {
       display: flex;
       gap: 18px;
@@ -391,8 +398,7 @@
   <header class="header">
     <div class="container nav">
       <a class="brand" href="index.html">
-        <span class="dot"></span>
-        <span>FYNX</span>
+        <img class="brand-logo" src="assets/fynx-logo-site.png" alt="FYNX">
       </a>
       <nav class="navlinks">
         <a href="#features">Features</a>
