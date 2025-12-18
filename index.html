@@ -6,6 +6,10 @@
   <title>FYNX — Trading Tools for iOS</title>
   <meta name="description" content="FYNX. Clean trading tools on iPhone."/>
 
+  <!-- ADDED (ONLY): favicon + iOS home screen icon -->
+  <link rel="icon" type="image/png" href="fynx-logo-site.png"/>
+  <link rel="apple-touch-icon" href="fynx-logo-site.png"/>
+
   <!-- Base stylesheet -->
   <link rel="stylesheet" href="assets/styles.css"/>
 
@@ -81,13 +85,6 @@
       border-radius: 999px;
       background: var(--accent);
       box-shadow: 0 0 16px rgba(40,240,200,0.9);
-    }
-
-    /* ADDED: logo image styling (minimal, only for the new img) */
-    .brand .brand-logo {
-      height: 20px;
-      width: auto;
-      display: block;
     }
 
     .navlinks {
@@ -398,7 +395,8 @@
   <header class="header">
     <div class="container nav">
       <a class="brand" href="index.html">
-        <img class="brand-logo" src="assets/fynx-logo-site.png" alt="FYNX">
+        <span class="dot"></span>
+        <span>FYNX</span>
       </a>
       <nav class="navlinks">
         <a href="#features">Features</a>
