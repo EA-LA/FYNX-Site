@@ -1,0 +1,14 @@
+{
+  "name": "fynx-app-website",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/check.mjs"
+  },
+  "devDependencies": {
+    "cheerio": "^1.0.0",
+    "lucide-static": "^0.468.0",
+    "prettier": "^3.9.9"
+  }
+}
