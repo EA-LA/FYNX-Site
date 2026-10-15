@@ -163,8 +163,8 @@ for (const feature of features) {
 }
 const domain="https://site.fynxfinanceworld.com";
 const aliases={"contact.html":"support.html","android.html":"google-play.html"};
-const org={"@type":"Organization","@id":"https://www.fynxfinanceworld.com/#organization",name:"FYNX",url:"https://www.fynxfinanceworld.com/",founder:{"@id":"https://elhamamini.cc/#person"}};
-const person={"@type":"Person","@id":"https://elhamamini.cc/#person",name:"Elham Amini",url:"https://elhamamini.cc/",sameAs:["https://www.linkedin.com/in/elham-amini-745560302/","https://www.instagram.com/___elham_amini___/"]};
+const org={"@type":"Organization","@id":"https://www.fynxfinanceworld.com/#organization",name:"FYNX",url:"https://www.fynxfinanceworld.com/",founder:{"@id":"https://ea-la.github.io/#person"}};
+const person={"@type":"Person","@id":"https://ea-la.github.io/#person",name:"Elham Amini",url:"https://ea-la.github.io/",sameAs:["https://www.linkedin.com/in/elham-amini-745560302/","https://www.instagram.com/___elham_amini___/"]};
 for (const file of generatedPages) {
   let html = read(file);
   if (file === "404.html")
@@ -178,7 +178,7 @@ for (const file of generatedPages) {
     $('head').append(`<script type="application/ld+json">${JSON.stringify({'@context':'https://schema.org','@graph':graph}).replace(/</g,'\\u003c')}</script>`);
   }
   if(file==='index.html') $('.feature-card').each((i,el)=>$(el).append(`<a class="text-link" href="${features[i].file}">Explore this feature ↗</a>`));
-  $('.fynx-ecosystem-links').append('<a href="https://www.fynxfinanceworld.com/about.html">About FYNX</a><a href="https://elhamamini.cc/">Elham Amini, founder</a>');
+  $('.fynx-ecosystem-links').append('<a href="https://www.fynxfinanceworld.com/about.html">About FYNX</a><a href="https://ea-la.github.io/">Elham Amini, founder</a>');
   writeFileSync(resolve(root, file), await format($.html(), { parser: "html" }));
 }
 writeFileSync(resolve(root, "assets/lucide-LICENSE"), read("node_modules/lucide-static/LICENSE"));
