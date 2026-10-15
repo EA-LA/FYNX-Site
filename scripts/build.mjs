@@ -3,6 +3,7 @@ import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { load } from "cheerio";
 import { format } from "prettier";
+import { features } from "./features.mjs";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const generatedPages = [];
@@ -156,11 +157,33 @@ page(
   "Find your way back to FYNX.",
   `<section class="page-intro container"><span class="eyebrow">404 / A SMALL DETOUR</span><h1>Let’s get you<br>back on track<span class="accent">.</span></h1><p>This page couldn’t be found.</p><a class="button primary" href="/index.html">Back to FYNX ${icon("arrow-right")}</a></section>`,
 );
+for (const feature of features) {
+  page(feature.file, feature.title + " | FYNX", feature.description,
+    `<section class="page-intro container"><span class="eyebrow">FYNX FOR IPHONE</span><h1>${feature.title}<span class="accent">.</span></h1><p>${feature.intro}</p></section><div class="container legal-layout section-bottom"><aside><span class="eyebrow">THE APP TOOLKIT</span><nav aria-label="App features">${features.map(f=>`<a href="${f.file}">${f.title}</a>`).join("")}</nav>${button()}</aside><article class="legal-copy"><p>${feature.description}</p>${feature.sections.map(([title,text])=>`<section><h2>${title}</h2><p>${text}</p></section>`).join("")}<p><a class="text-link" href="${feature.tool}">${feature.label} ↗</a></p><p>FYNX is free to download. Some tools and analytics require an Apple subscription; review current availability and pricing in the app.</p></article></div>`);
+}
+const domain="https://site.fynxfinanceworld.com";
+const aliases={"contact.html":"support.html","android.html":"google-play.html"};
+const org={"@type":"Organization","@id":"https://www.fynxfinanceworld.com/#organization",name:"FYNX",url:"https://www.fynxfinanceworld.com/",founder:{"@id":"https://elhamamini.cc/#person"}};
+const person={"@type":"Person","@id":"https://elhamamini.cc/#person",name:"Elham Amini",url:"https://elhamamini.cc/",sameAs:["https://www.linkedin.com/in/elham-amini-745560302/","https://www.instagram.com/___elham_amini___/"]};
 for (const file of generatedPages) {
   let html = read(file);
   if (file === "404.html")
     html = html.replace("<head>", '<head><base href="/">');
-  writeFileSync(resolve(root, file), await format(html, { parser: "html" }));
+  const $=load(html), canonical=domain+"/"+(file==="index.html"?"":aliases[file]||file);
+  $('link[rel="canonical"]').attr('href',canonical);
+  const privatePage=file==="404.html"||Boolean(aliases[file]);
+  $('head').append(`<meta name="robots" content="${privatePage?'noindex,follow':'index,follow,max-image-preview:large'}"><meta property="og:url" content="${canonical}"><meta name="twitter:card" content="summary_large_image">`);
+  if(!privatePage) {
+    const graph=[org,person,{"@type":"WebSite","@id":domain+"/#website",url:domain+"/",name:"FYNX Mobile App",publisher:{"@id":org["@id"]}},{"@type":"WebPage","@id":canonical+"#webpage",url:canonical,name:$('title').text(),description:$('meta[name=description]').attr('content'),isPartOf:{"@id":domain+"/#website"},about:{"@id":domain+"/#app"}},{"@type":"MobileApplication","@id":domain+"/#app",name:"FYNX Finance World",operatingSystem:"iOS",applicationCategory:"FinanceApplication",url:domain+"/",installUrl:store,publisher:{"@id":org["@id"]}}];
+    $('head').append(`<script type="application/ld+json">${JSON.stringify({'@context':'https://schema.org','@graph':graph}).replace(/</g,'\\u003c')}</script>`);
+  }
+  if(file==='index.html') $('.feature-card').each((i,el)=>$(el).append(`<a class="text-link" href="${features[i].file}">Explore this feature ↗</a>`));
+  $('.fynx-ecosystem-links').append('<a href="https://www.fynxfinanceworld.com/about.html">About FYNX</a><a href="https://elhamamini.cc/">Elham Amini, founder</a>');
+  writeFileSync(resolve(root, file), await format($.html(), { parser: "html" }));
 }
 writeFileSync(resolve(root, "assets/lucide-LICENSE"), read("node_modules/lucide-static/LICENSE"));
 console.log(`Built ${generatedPages.length} static pages.`);
+
+writeFileSync(resolve(root,'sitemap.xml'),'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+generatedPages.filter(f=>f!=='404.html'&&!aliases[f]).map(f=>`<url><loc>${domain}/${f==='index.html'?'':f}</loc></url>`).join('')+'</urlset>\n');
+writeFileSync(resolve(root,'robots.txt'),`User-agent: *\nAllow: /\nDisallow: /content/\nSitemap: ${domain}/sitemap.xml\n`);
+for(const file of ['privacy.html','terms.html']) {const $=load(read('content/'+file));$('meta[name=robots],link[rel=canonical]').remove();$('head').append(`<meta name="robots" content="noindex,follow"><link rel="canonical" href="${domain}/${file}">`);writeFileSync(resolve(root,'content',file),$.html());}
